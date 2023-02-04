@@ -1,0 +1,13 @@
+// export const API_ENDPOINT = 'http://localhost:9000'
+export const API_REGISTER_ENDPOINT = `/api/auth/register`
+export const API_LOGIN_ENDPOINT = `/api/auth/login`
+export const API_USER_INFO_ENDPOINT = `/api/player/info`
+export const API_LEADERBOARD_ENDPOINT = `/api/player/leaderboard`
+export const API_CREATE_ROOM_ENDPOINT = `/api/room/create`
+export const API_LIST_ROOM_ENDPOINT = `/api/room/list`
+export const API_DELETE_ROOM_ENDPOINT = `/api/room/delete`
+export const API_PLAY_ENDPOINT = `/api/chat/put`
+export const API_ROOM_CHAT_ENDPOINT = `/api/chat/list`
+export const API_ACTIVE_MATCH_ENDPOINT = `/api/match/get`
+export const API_LIST_MATCH_ENDPOINT = `/api/match/list`
+export const API_RANDOM_MATCH_ENDPOINT =`/api/room/random`

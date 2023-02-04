@@ -1,0 +1,46 @@
+version: "3.3"
+
+services:
+  app:
+    container_name: rochambeau_client
+    image: anhlb315/k8s_app
+    restart: always
+    ports:
+      - "3000:3000"
+    links:
+      - api
+    networks: 
+      - "rochambeau-net"
+  api:
+    container_name: rochambeau_server
+    image: anhlb315/k8s_api
+    restart: always
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mongodb
+    networks: 
+      - "rochambeau-net"
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    networks: 
+      - "rochambeau-net"
+  nginx:
+    container_name: rochambeau_nginx
+    image: anhlb315/k8s_nginx
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - app
+      - api
+    networks:
+      - "rochambeau-net"
+
+networks:
+  rochambeau-net:
+    driver: bridge
